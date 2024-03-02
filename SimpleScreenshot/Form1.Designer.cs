@@ -30,7 +30,11 @@
         {
             Capture = new Button();
             pictureBox1 = new PictureBox();
+            toolStrip1 = new ToolStrip();
+            toolStripLabel1 = new ToolStripLabel();
+            toolStripLabel2 = new ToolStripLabel();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            toolStrip1.SuspendLayout();
             SuspendLayout();
             // 
             // Capture
@@ -47,12 +51,35 @@
             // pictureBox1
             // 
             pictureBox1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            pictureBox1.Location = new Point(12, 12);
+            pictureBox1.Location = new Point(12, 28);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(558, 273);
+            pictureBox1.Size = new Size(558, 257);
             pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox1.TabIndex = 1;
             pictureBox1.TabStop = false;
+            pictureBox1.Click += pictureBox1_Click;
+            // 
+            // toolStrip1
+            // 
+            toolStrip1.Items.AddRange(new ToolStripItem[] { toolStripLabel1, toolStripLabel2 });
+            toolStrip1.Location = new Point(0, 0);
+            toolStrip1.Name = "toolStrip1";
+            toolStrip1.Size = new Size(582, 25);
+            toolStrip1.TabIndex = 2;
+            toolStrip1.Text = "toolStrip1";
+            // 
+            // toolStripLabel1
+            // 
+            toolStripLabel1.Name = "toolStripLabel1";
+            toolStripLabel1.Size = new Size(25, 22);
+            toolStripLabel1.Text = "File";
+            // 
+            // toolStripLabel2
+            // 
+            toolStripLabel2.Name = "toolStripLabel2";
+            toolStripLabel2.Size = new Size(49, 22);
+            toolStripLabel2.Text = "Options";
+            toolStripLabel2.Click += toolStripLabel2_Click;
             // 
             // Form1
             // 
@@ -60,6 +87,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(64, 64, 64);
             ClientSize = new Size(582, 338);
+            Controls.Add(toolStrip1);
             Controls.Add(pictureBox1);
             Controls.Add(Capture);
             ForeColor = Color.Black;
@@ -68,12 +96,18 @@
             Text = "SimpleScreenshot";
             Load += Form1_Load;
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            toolStrip1.ResumeLayout(false);
+            toolStrip1.PerformLayout();
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
 
         private Button Capture;
         private PictureBox pictureBox1;
+        private ToolStrip toolStrip1;
+        private ToolStripLabel toolStripLabel1;
+        private ToolStripLabel toolStripLabel2;
     }
 }
