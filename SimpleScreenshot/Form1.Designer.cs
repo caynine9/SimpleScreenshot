@@ -17,6 +17,7 @@
             {
                 components.Dispose();
             }
+            this.Capture.Click += new System.EventHandler(this.CaptureScreenshot);
             base.Dispose(disposing);
         }
 
@@ -30,11 +31,11 @@
         {
             Capture = new Button();
             pictureBox1 = new PictureBox();
-            toolStrip1 = new ToolStrip();
-            toolStripLabel1 = new ToolStripLabel();
-            toolStripLabel2 = new ToolStripLabel();
+            menuStrip1 = new MenuStrip();
+            fileToolStripMenuItem = new ToolStripMenuItem();
+            optioonsToolStripMenuItem = new ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
-            toolStrip1.SuspendLayout();
+            menuStrip1.SuspendLayout();
             SuspendLayout();
             // 
             // Capture
@@ -46,7 +47,7 @@
             Capture.TabIndex = 0;
             Capture.Text = "Capture";
             Capture.UseVisualStyleBackColor = true;
-            Capture.Click += Capture_Click;
+            Capture.Click += CaptureScreenshot;
             // 
             // pictureBox1
             // 
@@ -59,27 +60,28 @@
             pictureBox1.TabStop = false;
             pictureBox1.Click += pictureBox1_Click;
             // 
-            // toolStrip1
+            // menuStrip1
             // 
-            toolStrip1.Items.AddRange(new ToolStripItem[] { toolStripLabel1, toolStripLabel2 });
-            toolStrip1.Location = new Point(0, 0);
-            toolStrip1.Name = "toolStrip1";
-            toolStrip1.Size = new Size(582, 25);
-            toolStrip1.TabIndex = 2;
-            toolStrip1.Text = "toolStrip1";
+            menuStrip1.Items.AddRange(new ToolStripItem[] { fileToolStripMenuItem, optioonsToolStripMenuItem });
+            menuStrip1.Location = new Point(0, 0);
+            menuStrip1.Name = "menuStrip1";
+            menuStrip1.Size = new Size(582, 24);
+            menuStrip1.TabIndex = 2;
+            menuStrip1.Text = "menuStrip1";
+            menuStrip1.ItemClicked += menuStrip1_ItemClicked;
             // 
-            // toolStripLabel1
+            // fileToolStripMenuItem
             // 
-            toolStripLabel1.Name = "toolStripLabel1";
-            toolStripLabel1.Size = new Size(25, 22);
-            toolStripLabel1.Text = "File";
+            fileToolStripMenuItem.Name = "fileToolStripMenuItem";
+            fileToolStripMenuItem.Size = new Size(37, 20);
+            fileToolStripMenuItem.Text = "File";
             // 
-            // toolStripLabel2
+            // optioonsToolStripMenuItem
             // 
-            toolStripLabel2.Name = "toolStripLabel2";
-            toolStripLabel2.Size = new Size(49, 22);
-            toolStripLabel2.Text = "Options";
-            toolStripLabel2.Click += toolStripLabel2_Click;
+            optioonsToolStripMenuItem.Name = "optioonsToolStripMenuItem";
+            optioonsToolStripMenuItem.Size = new Size(61, 20);
+            optioonsToolStripMenuItem.Text = "Options";
+            optioonsToolStripMenuItem.Click += optionsToolStripMenuItem_Click;
             // 
             // Form1
             // 
@@ -87,17 +89,18 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(64, 64, 64);
             ClientSize = new Size(582, 338);
-            Controls.Add(toolStrip1);
             Controls.Add(pictureBox1);
             Controls.Add(Capture);
+            Controls.Add(menuStrip1);
             ForeColor = Color.Black;
+            MainMenuStrip = menuStrip1;
             Name = "Form1";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "SimpleScreenshot";
             Load += Form1_Load;
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
-            toolStrip1.ResumeLayout(false);
-            toolStrip1.PerformLayout();
+            menuStrip1.ResumeLayout(false);
+            menuStrip1.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -106,8 +109,8 @@
 
         private Button Capture;
         private PictureBox pictureBox1;
-        private ToolStrip toolStrip1;
-        private ToolStripLabel toolStripLabel1;
-        private ToolStripLabel toolStripLabel2;
+        private MenuStrip menuStrip1;
+        private ToolStripMenuItem fileToolStripMenuItem;
+        private ToolStripMenuItem optioonsToolStripMenuItem;
     }
 }
