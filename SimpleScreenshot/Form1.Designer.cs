@@ -34,6 +34,11 @@
             menuStrip1 = new MenuStrip();
             fileToolStripMenuItem = new ToolStripMenuItem();
             optioonsToolStripMenuItem = new ToolStripMenuItem();
+            changeNameFormatToolStripMenuItem = new ToolStripMenuItem();
+            changePreferredFileFormatToolStripMenuItem = new ToolStripMenuItem();
+            pNGToolStripMenuItem = new ToolStripMenuItem();
+            jPEGToolStripMenuItem = new ToolStripMenuItem();
+            bMPToolStripMenuItem = new ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             menuStrip1.SuspendLayout();
             SuspendLayout();
@@ -75,13 +80,49 @@
             fileToolStripMenuItem.Name = "fileToolStripMenuItem";
             fileToolStripMenuItem.Size = new Size(37, 20);
             fileToolStripMenuItem.Text = "File";
+            fileToolStripMenuItem.Click += fileToolStripMenuItem_Click_1;
             // 
             // optioonsToolStripMenuItem
             // 
+            optioonsToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { changeNameFormatToolStripMenuItem, changePreferredFileFormatToolStripMenuItem });
             optioonsToolStripMenuItem.Name = "optioonsToolStripMenuItem";
             optioonsToolStripMenuItem.Size = new Size(61, 20);
             optioonsToolStripMenuItem.Text = "Options";
             optioonsToolStripMenuItem.Click += optionsToolStripMenuItem_Click;
+            // 
+            // changeNameFormatToolStripMenuItem
+            // 
+            changeNameFormatToolStripMenuItem.Name = "changeNameFormatToolStripMenuItem";
+            changeNameFormatToolStripMenuItem.Size = new Size(233, 22);
+            changeNameFormatToolStripMenuItem.Text = "Change name format...";
+            // 
+            // changePreferredFileFormatToolStripMenuItem
+            // 
+            changePreferredFileFormatToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { pNGToolStripMenuItem, jPEGToolStripMenuItem, bMPToolStripMenuItem });
+            changePreferredFileFormatToolStripMenuItem.Name = "changePreferredFileFormatToolStripMenuItem";
+            changePreferredFileFormatToolStripMenuItem.Size = new Size(233, 22);
+            changePreferredFileFormatToolStripMenuItem.Text = "Change preferred file format...";
+            // 
+            // pNGToolStripMenuItem
+            // 
+            pNGToolStripMenuItem.Name = "pNGToolStripMenuItem";
+            pNGToolStripMenuItem.Size = new Size(180, 22);
+            pNGToolStripMenuItem.Text = "PNG  (default)";
+            pNGToolStripMenuItem.Click += pNGToolStripMenuItem_Click;
+            // 
+            // jPEGToolStripMenuItem
+            // 
+            jPEGToolStripMenuItem.Name = "jPEGToolStripMenuItem";
+            jPEGToolStripMenuItem.Size = new Size(180, 22);
+            jPEGToolStripMenuItem.Text = "JPEG";
+            jPEGToolStripMenuItem.Click += jPEGToolStripMenuItem_Click;
+            // 
+            // bMPToolStripMenuItem
+            // 
+            bMPToolStripMenuItem.Name = "bMPToolStripMenuItem";
+            bMPToolStripMenuItem.Size = new Size(180, 22);
+            bMPToolStripMenuItem.Text = "BMP";
+            bMPToolStripMenuItem.Click += bMPToolStripMenuItem_Click;
             // 
             // Form1
             // 
@@ -112,5 +153,10 @@
         private MenuStrip menuStrip1;
         private ToolStripMenuItem fileToolStripMenuItem;
         private ToolStripMenuItem optioonsToolStripMenuItem;
+        private ToolStripMenuItem changeNameFormatToolStripMenuItem;
+        private ToolStripMenuItem changePreferredFileFormatToolStripMenuItem;
+        private ToolStripMenuItem pNGToolStripMenuItem;
+        private ToolStripMenuItem jPEGToolStripMenuItem;
+        private ToolStripMenuItem bMPToolStripMenuItem;
     }
 }

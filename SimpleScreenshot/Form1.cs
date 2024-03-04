@@ -15,6 +15,9 @@ namespace SimpleScreenshot
         {
             InitializeComponent();
 
+            preferredFormat = ImageFormat.Png;
+            pNGToolStripMenuItem.Checked = true;
+
             Subscribe();
         }
 
@@ -64,7 +67,8 @@ namespace SimpleScreenshot
                         pictureBox1.Image = (Bitmap)screenshot.Clone();
 
                         string timestamp = DateTime.Now.ToString("MMddHHmmss");
-                        screenshot.Save($"screenshot_{timestamp}.png", ImageFormat.Png);
+                        
+                        screenshot.Save($"screenshot_{timestamp}.{preferredFormat.ToString().ToLower()}", preferredFormat);
                     }
 
                 }
@@ -80,22 +84,7 @@ namespace SimpleScreenshot
             }
         }
 
-        private void toolStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
-        {
-
-        }
-
         private void pictureBox1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void fileToolStripMenuItem_Click(object sender, EventArgs e)
         {
 
         }
@@ -115,6 +104,41 @@ namespace SimpleScreenshot
             base.OnFormClosing(e);
 
             Unsubscribe();
+        }
+
+        private void fileToolStripMenuItem_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private ImageFormat preferredFormat = ImageFormat.Png;
+
+        private void UncheckAllFileFormatItems()
+        {
+            pNGToolStripMenuItem.Checked = false;
+            jPEGToolStripMenuItem.Checked = false;
+            bMPToolStripMenuItem.Checked = false;
+        }
+
+        private void pNGToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            UncheckAllFileFormatItems();
+            pNGToolStripMenuItem.Checked = true;
+            preferredFormat = ImageFormat.Png;
+        }
+
+        private void jPEGToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            UncheckAllFileFormatItems();
+            jPEGToolStripMenuItem.Checked = true;
+            preferredFormat = ImageFormat.Jpeg;
+        }
+
+        private void bMPToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            UncheckAllFileFormatItems();
+            bMPToolStripMenuItem.Checked = true;
+            preferredFormat = ImageFormat.Bmp;
         }
     }
 }
